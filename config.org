@@ -1,0 +1,92 @@
+#+TITLE: Harrison's GNU Emacs Configuration
+#+AUTHOR: Harrison Totty
+#+EMAIL: harrisongtotty@gmail.com
+#+OPTIONS: toc:nil num:nil
+
+* Introduction
+This file conveniently contains the bulk of my GNU Emacs configuration.
+
+* Packages
+** ==org==
+org-mode's installation is handled by ==init.el==
+** ==org-bullets=
+This allows me to see a much nicer outline in org-mode.
+
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'org-bullets)
+#+END_SRC
+
+* User Interface & Appearance
+** Menu, Toolbar, and Scrollbar
+I don't like having these, so let's disable them.
+
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(when window-system (scroll-bar-mode -1))
+#+END_SRC
+
+** Window Title
+This should be something decently useful.
+
+#+BEGIN_SRC emacs-lisp
+(setq frame-title-format "GNU Emacs")
+#+END_SRC
+
+** Org Mode
+*** Enable =org-bullets=.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'org-mode-hook #'org-bullets-mode)
+#+END_SRC
+
+*** Change the =org-ellipsis= to something cooler.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-ellipsis " ⤵")
+#+END_SRC
+
+*** Enable syntax highlighting.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-fontify-natively t)
+#+END_SRC
+
+* Editing & Workflow
+** Org Mode
+*** Make TAB act as if it were issued in a buffer of the language's major mode.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-tab-acts-natively t)
+#+END_SRC
+
+*** Use the current window when editing a code snippet.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-window-setup 'current-window)
+#+END_SRC
+
+*** Enable spell checking.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'org-mode-hook 'flyspell-mode)
+#+END_SRC
+
+** Misc
+*** Always assume that I want to kill the buffer when pressing =C-x k=.
+
+#+BEGIN_SRC emacs-lisp
+(defun hgt/kill-current-buffer ()
+  "Kill the current buffer without prompting."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+(global-set-key (kbd "C-x k") 'hgt/kill-current-buffer)
+#+END_SRC
+
+*** Always indent with spaces. Tabs are a sin.
+
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+

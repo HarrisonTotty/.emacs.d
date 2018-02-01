@@ -1,0 +1,28 @@
+# ~/.emacs.d/.gitignore
+# Stuff to ignore when pushing to source control
+
+# Controlled by the package manager
+/straight
+
+# Temporary files created by Emacs or other packages
+.mc-lists.el
+.org-id-locations
+.tern-port
+auto-save-list
+ede-projects.el
+network-security.data
+semanticdb
+smex-items
+tramp
+/config.el
+
+# Compiled files
+*.elc
+*.lib
+*.fas
+*.dat
+*.eld
+
+# Transient files
+*.cache-*
+*.log
