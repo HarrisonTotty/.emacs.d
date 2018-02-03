@@ -4,6 +4,9 @@
 # Controlled by the package manager
 /straight
 
+# Backup files
+/file-backups
+
 # Temporary files created by Emacs or other packages
 .mc-lists.el
 .org-id-locations

@@ -7,6 +7,17 @@
 This file conveniently contains the bulk of my GNU Emacs configuration.
 
 * Packages
+** ==company-mode==
+Company mode is pretty handy!
+
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'company)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'company-math)
+#+END_SRC
+
 ** ==org==
 org-mode's installation is handled by ==init.el==
 ** ==org-bullets=
@@ -53,6 +64,13 @@ This should be something decently useful.
 #+END_SRC
 
 * Editing & Workflow
+** Company Mode
+Enable ==company-mode== completion in all buffers
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+
 ** Org Mode
 *** Make TAB act as if it were issued in a buffer of the language's major mode.
 
@@ -90,3 +108,14 @@ This should be something decently useful.
 (setq-default indent-tabs-mode nil)
 #+END_SRC
 
+*** Change the behavior of automatically created backup files.
+
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist '(("." . "~/.emacs.d/file-backups"))
+    backup-by-copying t    ; Don't delete hardlinks
+    version-control t      ; Use version numbers on backups
+    delete-old-versions t  ; Automatically delete excess backups
+    kept-new-versions 20   ; Keep this many new (unchanged) backups
+    keep-old-versions 5    ; Keep this many old (changed) backups
+)
+#+END_SRC
