@@ -21,6 +21,10 @@ Company mode is pretty handy!
 (straight-use-package 'company-math)
 #+END_SRC
 
+** =crystal-mode=
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'crystal-mode)
+#+END_SRC
 ** =markdown-mode=
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'markdown-mode)
@@ -233,4 +237,8 @@ Enable ==company-mode== completion in all buffers
 (setq cua-auto-tabify-rectangles nil) ; Don't tabify after rectangle commands
 (transient-mark-mode 1)               ; No region when not highlighted
 (setq cua-keep-region-after-copy t)   ; Keep showing the region after copying it
+#+END_SRC
+*** Set the default working directory to =~/wolfram-research/stash/=.
+#+BEGIN_SRC emacs-lisp
+(setq default-directory "~/wolfram-research/stash/")
 #+END_SRC
