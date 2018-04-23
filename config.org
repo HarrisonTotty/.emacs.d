@@ -30,14 +30,26 @@ Company mode is pretty handy!
 (straight-use-package 'markdown-mode)
 #+END_SRC
 
-** =org=
-org-mode's installation is handled by ==init.el==
+** =org-mode=
+org-mode's installation is handled by =init.el=
 ** =org-bullets=
 This allows me to see a much nicer outline in org-mode.
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'org-bullets)
 #+END_SRC
 
+** =puppet-mode=
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'puppet-mode)
+#+END_SRC
+** =salt-mode=
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'salt-mode)
+#+END_SRC
+** =yaml-mode=
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'yaml-mode)
+#+END_SRC
 * User Interface & Appearance
 ** Splash Screen & Scratch Buffer
 *** Hide the splash/startup screen by default
@@ -189,14 +201,20 @@ Enable ==company-mode== completion in all buffers
 (setq org-hide-emphasis-markers t)
 #+END_SRC
 
-*** Enable in-line images (use =org-redisplay-inline-images= to refresh the in-lined images)
+*** Enable in-line images (use =org-redisplay-inline-images= to refresh the in-lined images).
 #+BEGIN_SRC emacs-lisp
 (setq org-startup-with-inline-images t)
 #+END_SRC
 
-*** Enable visual line mode by default in org
+*** Enable visual line mode by default.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook #'visual-line-mode)
+#+END_SRC
+
+** Markdown
+*** Enable visual line mode by default.
+#+BEGIN_SRC emacs-lisp
+(add-hook 'gfm-mode-hook #'visual-line-mode)
 #+END_SRC
 
 ** Misc
