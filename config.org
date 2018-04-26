@@ -264,3 +264,10 @@ Enable ==company-mode== completion in all buffers
 #+BEGIN_SRC emacs-lisp
 (setq default-directory "~/wolfram-research/stash/")
 #+END_SRC
+*** Enable =guide-key= by default.
+#+BEGIN_SRC emacs-lisp
+(require 'guide-key)
+(guide-key-mode t)
+(setq guide-key/guide-key-sequence t)
+(setq guide-key/popup-window-position 'bottom)
+#+END_SRC
