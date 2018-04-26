@@ -25,6 +25,10 @@ Company mode is pretty handy!
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'crystal-mode)
 #+END_SRC
+** =guide-key=
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'guide-key)
+#+END_SRC
 ** =markdown-mode=
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'markdown-mode)
