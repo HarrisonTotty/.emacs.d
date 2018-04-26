@@ -1,7 +1,10 @@
 ;; ~/.emacs.d/init.el
 ;; This file serves as the entry point to a new universe. Strings here vibrate
 ;; as parentheses. Fields and particles take strange shapes like "M-x" and
-;; "C-y". The syntax of algebra itself is prefixed.
+;; "C-x". The syntax of algebra itself is prefixed.
+
+;; Reduce the frequency of garbage collections to help facilitate a faster startup
+(setq gc-cons-threshold (* 50 1000 1000))
 
 ;; Bootstrap my package manager
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
@@ -20,3 +23,6 @@
 
 ;; "Run" my configuraiton file 
 (org-babel-load-file "~/.emacs.d/config.org")
+
+;; Increase the frequency of garbage collections once everything is loaded
+(setq gc-cons-threshold (* 2 1000 1000))
