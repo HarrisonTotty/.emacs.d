@@ -46,6 +46,16 @@ This allows me to see a much nicer outline in org-mode.
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'puppet-mode)
 #+END_SRC
+** =s=
+"s" is a collection of string manipulation libraries.
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 's)
+#+END_SRC
+** =f=
+"f" is a collection of file manipulation libraries.
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'f)
+#+END_SRC
 ** =salt-mode=
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'salt-mode)
@@ -118,42 +128,41 @@ This should be something decently useful.
 
 *** Text Format
 #+BEGIN_SRC emacs-lisp
-(defun simple-mode-line-render (left right)
-  "Return a string of `window-width' length containing LEFT, and RIGHT
- aligned respectively."
+  (require 'f)
+  (require 's)
+  (defun simple-mode-line-render (left right)
+  "Return a string of `window-width' length containing LEFT, and RIGHT aligned respectively."
   (let* ((available-width (- (window-width) (length left) 2)))
-    (format (format "%%s %%%ds" available-width) left right)))
+          (format (format "%%s %%%ds" available-width) left right)))
 
-(setq-default mode-line-format
-  '((:eval (simple-mode-line-render
-    ;; Left Side
-    (format-mode-line
-      (list
-        ;; Current major mode
-        "["
-        (downcase mode-name)
-        "]  "
-        ;; Current buffer name
-        '(:eval
-          (if buffer-file-name
-            (replace-regexp-in-string
-              "\\\\" "/"
-              (replace-regexp-in-string
-                (regexp-quote (getenv "HOME")) "~"
-                (convert-standard-filename buffer-file-name)
+      (setq-default mode-line-format
+        '((:eval (simple-mode-line-render
+          ;; Left Side
+          (format-mode-line
+            (list
+              ;; Current major mode
+              "["
+              (downcase mode-name)
+              "]  "
+              ;; Current buffer name
+              (if buffer-file-name
+                (if (> (length (f-short buffer-file-name)) 60)
+                  (if (s-starts-with? "~" (f-short buffer-file-name))
+                    (s-concat "~/.../" (f-filename (f-parent buffer-file-name)) "/" (f-filename buffer-file-name))
+                    (s-concat "/.../" (f-filename (f-parent buffer-file-name)) "/" (f-filename buffer-file-name))
+                  )
+                  (f-short buffer-file-name)
+                )
+                (buffer-name)
               )
             )
-          (buffer-name)
           )
-        )
+          ;; Right Side
+          (format-mode-line
+            "(%l,%c)"
+          )
+        )))
       )
-    )
-    ;; Right Side
-    (format-mode-line
-      "(%l,%c)"
-    )
-  )))
-)
 #+END_SRC
 
 ** Org Mode
