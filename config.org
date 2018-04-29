@@ -180,7 +180,11 @@ This should be something decently useful.
 #+BEGIN_SRC emacs-lisp
 (setq org-src-fontify-natively t)
 #+END_SRC
-
+*** Make inline LaTeX larger.
+#+BEGIN_SRC emacs-lisp
+(require 'org)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
+#+END_SRC
 * Editing & Workflow
 ** Company Mode
 Enable ==company-mode== completion in all buffers
