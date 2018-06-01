@@ -55,10 +55,19 @@ Note that org-mode's installation is handled by =init.el=
 (straight-use-package 'crystal-mode)
 (straight-use-package 'flycheck-crystal)
 (straight-use-package 'inf-crystal)
+(straight-use-package 'ob-crystal)
 #+END_SRC
+*** Shell Scripting
+#+begin_src emacs-lisp
+;(straight-use-package 'ob-sh)
+#+end_src
 *** Wolfram Language
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'wolfram-mode)
+(autoload 'wolfram-mode "wolfram-mode" nil t)
+(autoload 'run-wolfram "wolfram-mode" nil t)
+(setq wolfram-program "/usr/local/Wolfram/Mathematica/11.3/Executables/WolframKernel")
+(setq wolfram-path "~/.Mathematica/Applications")
 #+END_SRC
 ** User Interface & Appearance
 *** Color Theme
@@ -208,6 +217,35 @@ Enable ==company-mode== completion in all buffers
 *** Enable visual line mode by default.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook #'visual-line-mode)
+#+END_SRC
+*** Enable easy templates.
+#+BEGIN_SRC emacs-lisp
+(require 'org-tempo)
+#+END_SRC
+*** Don't warn me when I try to evaluate a code block.
+#+begin_src emacs-lisp
+(setq org-confirm-babel-evaluate nil)
+#+end_src
+*** Set up my languages.
+#+BEGIN_SRC emacs-lisp
+(eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages
+    '(
+      (awk . t)
+      (calc . t)
+      (C . t)
+      (crystal . t)
+      (emacs-lisp . t)
+      (gnuplot . t)
+      (haskell . t)
+      (latex . t)
+      (perl . t)
+      (python . t)
+      (R . t)
+      ;(sh . t)
+    )
+  )
+)
 #+END_SRC
 ** Markdown
 *** Enable visual line mode by default.
