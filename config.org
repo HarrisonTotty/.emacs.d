@@ -105,6 +105,10 @@ I've disabled this for now, since I would rather just have a scratch buffer.
 #+BEGIN_SRC emacs-lisp
 (set-face-foreground 'mode-line wal-color15)
 #+END_SRC
+*** Load my default font
+#+begin_src 
+(set-face-attribute 'default t :font "Iosevka 16")
+#+end_src
 ** Menu, Toolbar, and Scrollbar
 I don't like having these, so let's disable them.
 #+BEGIN_SRC emacs-lisp
