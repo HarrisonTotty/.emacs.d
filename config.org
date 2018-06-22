@@ -50,6 +50,10 @@ Note that org-mode's installation is handled by =init.el=
 (straight-use-package 'yaml-mode)
 #+END_SRC
 ** Programming Languages
+*** Haskell
+#+begin_src emacs-lisp
+(straight-use-package 'haskell-mode)
+#+end_src
 *** Crystal
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'crystal-mode)
@@ -57,18 +61,15 @@ Note that org-mode's installation is handled by =init.el=
 (straight-use-package 'inf-crystal)
 (straight-use-package 'ob-crystal)
 #+END_SRC
+*** Rust
+#+begin_src emacs-lisp
+(straight-use-package 'rust-mode)
+(straight-use-package 'flycheck-rust)
+#+end_src
 *** Shell Scripting
 #+begin_src emacs-lisp
 ;(straight-use-package 'ob-sh)
 #+end_src
-*** Wolfram Language
-#+BEGIN_SRC emacs-lisp
-(straight-use-package 'wolfram-mode)
-(autoload 'wolfram-mode "wolfram-mode" nil t)
-(autoload 'run-wolfram "wolfram-mode" nil t)
-(setq wolfram-program "/usr/local/Wolfram/Mathematica/11.3/Executables/WolframKernel")
-(setq wolfram-path "~/.Mathematica/Applications")
-#+END_SRC
 ** User Interface & Appearance
 *** Color Theme
 #+BEGIN_SRC emacs-lisp
