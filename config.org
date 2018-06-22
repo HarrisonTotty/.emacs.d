@@ -147,7 +147,7 @@ This should be something decently useful.
           (format-mode-line
             (list
               ;; Current major mode
-              "["
+              " ["
               (downcase mode-name)
               "]  "
               ;; Current buffer name
@@ -165,7 +165,7 @@ This should be something decently useful.
           )
           ;; Right Side
           (format-mode-line
-            "(%l,%c)"
+            "(%l,%c) "
           )
         )))
       )
