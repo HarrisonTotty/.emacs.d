@@ -15,6 +15,10 @@ This file conveniently contains the bulk of my GNU Emacs configuration.
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'salt-mode)
 #+END_SRC
+*** Terraform
+#+BEGIN_SRC emacs-lisp
+(straight-use-package 'terraform-mode)
+#+END_SRC
 ** Editing & Workflow
 *** Automatic Key Binding Discovery
 #+BEGIN_SRC emacs-lisp
@@ -65,6 +69,8 @@ Note that org-mode's installation is handled by =init.el=
 #+begin_src emacs-lisp
 (straight-use-package 'rust-mode)
 (straight-use-package 'flycheck-rust)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 #+end_src
 *** Shell Scripting
 #+begin_src emacs-lisp
