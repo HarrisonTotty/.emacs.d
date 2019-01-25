@@ -287,15 +287,12 @@ Enable ==company-mode== completion in all buffers
 #+BEGIN_SRC emacs-lisp
   (setq-default indent-tabs-mode nil)
 #+END_SRC
-*** Change the behavior of automatically created backup files.
+*** Change the behavior of automatically created backup and autosave files.
+That sh*t is annoying. Stop it from happening.
 #+BEGIN_SRC emacs-lisp
-  (setq backup-directory-alist '(("." . "~/.emacs.d/file-backups"))
-        backup-by-copying t    ; Don't delete hardlinks
-        version-control t      ; Use version numbers on backups
-        delete-old-versions t  ; Automatically delete excess backups
-        kept-new-versions 20   ; Keep this many new (unchanged) backups
-        keep-old-versions 5    ; Keep this many old (changed) backups
-        )
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 #+END_SRC
 *** Enable =delete-selection-mode= because it makes sense.
 #+BEGIN_SRC emacs-lisp
