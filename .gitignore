@@ -21,6 +21,7 @@ semanticdb
 smex-items
 tramp
 /config.el
+/reveal.js/
 
 # Compiled files
 *.elc
