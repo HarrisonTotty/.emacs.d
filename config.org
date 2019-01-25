@@ -5,6 +5,13 @@
 
 * Introduction
 This file conveniently contains the bulk of my GNU Emacs configuration.
+* EVIL
+Because Emacs is a great operating system with a crappy text editor.
+#+begin_src emacs-lisp
+(straight-use-package 'evil)
+(require 'evil)
+(evil-mode 1)
+#+end_src
 * Packages
 ** DevOps Languages
 *** Puppet
@@ -152,9 +159,12 @@ This should be something decently useful.
           ;; Left Side
           (format-mode-line
             (list
-              ;; Current major mode
               " ["
-              (downcase mode-name)
+              ;; Current EVIL state
+              (downcase (symbol-name evil-state))
+              " "
+              ;; Current major mode
+              (s-replace "lisp interaction" "scratch" (downcase (if (s-contains? "[" mode-name) (car (s-split "\\[" mode-name)) mode-name)))
               "]  "
               ;; Current buffer name
               (if buffer-file-name
