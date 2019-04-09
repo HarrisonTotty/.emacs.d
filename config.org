@@ -298,9 +298,9 @@ That sh*t is annoying. Stop it from happening.
 #+BEGIN_SRC emacs-lisp
   (delete-selection-mode 1)
 #+END_SRC
-*** Enable =cua-mode= because I hate the default keybindings.
+*** Disable =cua-mode= because I use /EVIL/ now.
 #+BEGIN_SRC emacs-lisp
-  (cua-mode t)                          ; Enable cua-mode
+  (cua-mode nil)                        ; Enable cua-mode
   (setq cua-auto-tabify-rectangles nil) ; Don't tabify after rectangle commands
   (transient-mark-mode 1)               ; No region when not highlighted
   (setq cua-keep-region-after-copy t)   ; Keep showing the region after copying it
