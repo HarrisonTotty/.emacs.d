@@ -210,6 +210,41 @@ Enable ==company-mode== completion in all buffers
 #+BEGIN_SRC emacs-lisp
 (add-hook 'after-init-hook 'global-company-mode)
 #+END_SRC
+** "Interactively Do Things" Mode
+*** Enable =ido-mode= on startup.
+#+begin_src emacs-lisp
+(require 'ido)
+(ido-mode t)
+#+end_src
+*** Allow TAB to auto-complete in =ido-mode=.
+#+begin_src emacs-lisp
+(setq ido-enable-prefix t)
+(setq ido-cannot-complete-command 'ido-next-match)
+#+end_src
+*** Enable fuzzy ("flex") matching.
+#+begin_src emacs-lisp
+(setq ido-enable-flex-matching t)
+#+end_src
+*** Enable =ido-mode= pretty-much everywhere.
+#+begin_src emacs-lisp
+(setq ido-everywhere t)
+(setq ido-virtual-buffers t)
+#+end_src
+*** Allow =ido-mode= to create buffers that don't exist when running =C-x b=.
+#+begin_src emacs-lisp
+(setq ido-create-buffer 'always)
+#+end_src
+*** Make =ido-mode= honor =completion-ignored-extensions=.
+#+begin_src emacs-lisp
+(setq ido-ignore-extensions t)
+#+end_src
+*** Prevent =ido-mode= from storing history.
+#+begin_src emacs-lisp
+(setq ido-enable-last-directory-history nil)
+(setq ido-record-commands nil)
+(setq ido-max-work-directory-list 0)
+(setq ido-max-work-file-list 0)
+#+end_src
 ** Org Mode
 *** Make TAB act as if it were issued in a buffer of the language's major mode.
 #+BEGIN_SRC emacs-lisp
