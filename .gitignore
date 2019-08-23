@@ -33,3 +33,9 @@ tramp
 # Transient files
 *.cache-*
 *.log
+
+# IDO files
+ido.last
+
+# Misc
+/request
