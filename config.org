@@ -14,6 +14,10 @@ Because Emacs is a great operating system with a crappy text editor.
 #+end_src
 * Packages
 ** DevOps Languages
+*** Groovy (Jenkinsfile)
+#+begin_src emacs-lisp
+(straight-use-package 'groovy-mode)
+#+end_src
 *** Puppet
 #+BEGIN_SRC emacs-lisp
 (straight-use-package 'puppet-mode)
