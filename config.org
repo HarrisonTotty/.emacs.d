@@ -76,6 +76,10 @@ Note that org-mode's installation is handled by =init.el=
 #+begin_src emacs-lisp
 (straight-use-package 'haskell-mode)
 #+end_src
+*** Lua
+#+begin_src emacs-lisp
+(straight-use-package 'lua-mode)
+#+end_src
 *** Python
 #+begin_src emacs-lisp
 (straight-use-package 'ein)
