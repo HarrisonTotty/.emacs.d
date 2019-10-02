@@ -72,6 +72,10 @@ Note that org-mode's installation is handled by =init.el=
 (straight-use-package 'inf-crystal)
 (straight-use-package 'ob-crystal)
 #+END_SRC
+*** Go
+#+begin_src emacs-lisp
+(straight-use-package 'go-mode)
+#+end_src
 *** Haskell
 #+begin_src emacs-lisp
 (straight-use-package 'haskell-mode)
